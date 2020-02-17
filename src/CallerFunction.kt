@@ -1,4 +1,6 @@
 import APIModule1.ResponseObjectModule1
+import APIModule1.ResponseObjectModule2
+import APIModule1.ResponseObjectModule3
 import jdk.nashorn.internal.codegen.CompilerConstants
 
 internal class CallerFunction {
@@ -26,16 +28,16 @@ internal fun call() {
         // Handle the result
     })
 
-    obj.makeCall(Module.Module2.PostCall("data") { response: ResponseObjectModule1 ->
+    obj.makeCall(Module.Module2.PostCall("data") { response: ResponseObjectModule2 ->
         // Handle the result
     })
-    obj.makeCall(Module.Module2.PutCall("data") { response: ResponseObjectModule1 ->
+    obj.makeCall(Module.Module2.PutCall("data") { response: ResponseObjectModule2 ->
         // Handle the result
     })
-    obj.makeCall(Module.Module3.PostCall("data") { response: ResponseObjectModule1 ->
+    obj.makeCall(Module.Module3.PostCall("data") { response: ResponseObjectModule3 ->
         // Handle the result
     })
-    obj.makeCall(Module.Module3.PutCall("data") { response: ResponseObjectModule1 ->
+    obj.makeCall(Module.Module3.PutCall("data") { response: ResponseObjectModule3 ->
         // Handle the result
     })
 }

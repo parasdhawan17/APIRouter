@@ -1,7 +1,9 @@
 package com.paymentus.sdk.APIHandlers.Controllers.AutoPay
 
 import APIModule1.DataObjectModule1
+import APIModule1.DataObjectModule3
 import APIModule1.ResponseObjectModule1
+import APIModule1.ResponseObjectModule3
 import com.paymentus.sdk.APIHandlers.Controllers.RestHttp.RestHttpController
 import com.paymentus.sdk.APIHandlers.Controllers.RestHttp.RestHttpService
 import com.paymentus.sdk.APIHandlers.DataModels.ApiHandlers.APIRequestDataObject
@@ -17,10 +19,10 @@ internal class Module3Service : Module3Interface {
     private val API_PATH: String = "http://www.dummy.com/api"
 
     override fun makePutCall(
-        dataObjectModule1: DataObjectModule1,
-        completionHandler: (response: ResponseObjectModule1) -> Unit
+        dataObjectModule3: DataObjectModule3,
+        completionHandler: (response: ResponseObjectModule3) -> Unit
     ) {
-        val apiRequestDataObject = APIRequestDataObject(body = dataObjectModule1.data, path = API_PATH)
+        val apiRequestDataObject = APIRequestDataObject(body = dataObjectModule3.data, path = API_PATH)
         apiController.putRequest(apiRequestDataObject) {
                 response: ApiResponseDataObject ->
             var responseObjectModule1 = ResponseObjectModule1(response = response.response!!)
@@ -28,10 +30,10 @@ internal class Module3Service : Module3Interface {
     }
 
     override fun makePostCall(
-        dataObjectModule1: DataObjectModule1,
-        completionHandler: (response: ResponseObjectModule1) -> Unit
+        dataObjectModule3: DataObjectModule3,
+        completionHandler: (response: ResponseObjectModule3) -> Unit
     ) {
-        val apiRequestDataObject = APIRequestDataObject(body = dataObjectModule1.data, path = API_PATH)
+        val apiRequestDataObject = APIRequestDataObject(body = dataObjectModule3.data, path = API_PATH)
         apiController.postRequest(apiRequestDataObject) {
                 response: ApiResponseDataObject ->
             var responseObjectModule1 = ResponseObjectModule1(response = response.response!!)

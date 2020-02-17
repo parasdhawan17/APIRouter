@@ -1,5 +1,4 @@
-import APIModule1.DataObjectModule1
-import APIModule1.ResponseObjectModule1
+import APIModule1.*
 import com.paymentus.sdk.APIHandlers.Controllers.AutoPay.*
 import com.paymentus.sdk.APIHandlers.Controllers.AutoPay.Module1Controller
 import com.paymentus.sdk.APIHandlers.Controllers.AutoPay.Module1Service
@@ -13,11 +12,12 @@ internal sealed class Module{
         private val module1Service = Module1Service()
         val module1Controller = Module1Controller(module1Service)
 
-        class PostCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module1(){
+        class PostCall(var data : DataObjectModule1,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module1(){
             fun call(){
-                module1Controller.makePostCall(DataObjectModule1(data),completionHandler)
+                module1Controller.makePostCall(data,completionHandler)
             }
         }
+
         class PutCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module1(){
             fun call(){
                 module1Controller.makePostCall(DataObjectModule1(data),completionHandler)
@@ -36,14 +36,14 @@ internal sealed class Module{
     sealed class Module2 : Module(){
         private val module2Service = Module2Service()
         val module2Controller = Module2Controller(module2Service)
-        class PostCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module2(){
+        class PostCall(var data : DataObjectModule2, var completionHandler: (response: ResponseObjectModule2) -> Unit) : Module2(){
             fun call(){
-                module2Controller.makePostCall(DataObjectModule1(data),completionHandler)
+                module2Controller.makePostCall(data,completionHandler)
             }
         }
-        class PutCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module2(){
+        class PutCall(var data : DataObjectModule2,var completionHandler: (response: ResponseObjectModule2) -> Unit) : Module2(){
             fun call(){
-                module2Controller.makePostCall(DataObjectModule1(data),completionHandler)
+                module2Controller.makePostCall(data,completionHandler)
             }
         }
 
@@ -59,14 +59,14 @@ internal sealed class Module{
     sealed class Module3 : Module(){
         private val module3Service = Module3Service()
         val module3Controller = Module3Controller(module3Service)
-        class PostCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module3(){
+        class PostCall(var data : DataObjectModule3,var completionHandler: (response: ResponseObjectModule3) -> Unit) : Module3(){
             fun call(){
-                module3Controller.makePostCall(DataObjectModule1(data),completionHandler)
+                module3Controller.makePostCall(data,completionHandler)
             }
         }
-        class PutCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module3(){
+        class PutCall(var data : DataObjectModule3,var completionHandler: (response: ResponseObjectModule3) -> Unit) : Module3(){
             fun call(){
-                module3Controller.makePostCall(DataObjectModule1(data),completionHandler)
+                module3Controller.makePostCall(data,completionHandler)
             }
         }
 
