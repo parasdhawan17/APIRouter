@@ -18,9 +18,9 @@ internal sealed class Module{
             }
         }
 
-        class PutCall(var data : String,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module1(){
+        class PutCall(var data : DataObjectModule1,var completionHandler: (response: ResponseObjectModule1) -> Unit) : Module1(){
             fun call(){
-                module1Controller.makePostCall(DataObjectModule1(data),completionHandler)
+                module1Controller.makePostCall(data,completionHandler)
             }
         }
 
